@@ -1,0 +1,23 @@
+{
+  "name": "exchangerateboard",
+  "version": "1.0.0",
+  "description": "\"Gecko Board Setup and Exhange Rate/Bitcoin Visualization\"",
+  "main": "index.js",
+  "dependencies": {
+    "geckoboard": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josereyes016/ExchangeRateBoard.git"
+  },
+  "author": "Jose Reyes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josereyes016/ExchangeRateBoard/issues"
+  },
+  "homepage": "https://github.com/josereyes016/ExchangeRateBoard#readme"
+}

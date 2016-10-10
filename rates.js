@@ -4,17 +4,21 @@
 **  returns: An array of Objects that include date, money, country
 */
 
-var createEXData = function ( rawData ){
+var createEXData = function ( rawData ) {
 
-  exchangeData = [];
+  var exchangeData = [];
 
-  for( var key in rawData.rates ){
-    exchangeData.push({ data: rawData['date'], money: Math.round(rawData.rates[key]*100), country: key});
+  for( var key in rawData['rates']) {
+    exchangeData.push( { data: rawData['date'],
+                         money: Math.round(rawData.rates[key]*100),
+                         country: key
+                       }
+                     );
   }
 
+  // console.log(exchangeData);
   return exchangeData;
-
-}
+};
 
 module.exports = {
   createEXData: createEXData

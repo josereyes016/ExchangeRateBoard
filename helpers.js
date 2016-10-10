@@ -7,8 +7,6 @@
 */
 var modify = function( database, action, data ){
 
-  console.log(data);
-
   if( action == 'PUT') {
 
     database.put( data,
@@ -19,7 +17,7 @@ var modify = function( database, action, data ){
           return false;
         }
 
-        console.log('Dataset created and data added');
+        console.log('Data Overwritten');
       }
     );
 
@@ -35,7 +33,7 @@ var modify = function( database, action, data ){
           return false;
         }
 
-        console.log('Dataset created and data added');
+        console.log('Data added');
         exchangeData = [];
       }
 

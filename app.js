@@ -1,37 +1,64 @@
 var API_KEY = 'de11f06ed43f5fb59a36472754dae2f5';
 
 var gb = require('geckoboard')(API_KEY);
+var request = require('ajax-request');
+var dataManip = require('./rates');
+var help = require('./helpers');
 
-console.log(gb);
-
-var testDB = {
-	id: "test.db",
+var ratesDB = {
+	id: "rates.db",
 	fields: {
-		f1 : {
-			type : 'number',
-			name : 'Random Number',
+		country: {
+			type : 'string',
+			name : 'Country',
 		},
 
-		f2: {
+		money: {
 			type: 'money',
 			name: 'Cash',
 			currency_code: 'USD',
 		},
 
-		f3: {
+		data: {
 			type: 'date',
 			name: 'Date',
 		}
 	}
 };
 
-var dbConn = function( err, database) {
-	if(err) {
-		console.error(err);
-		return;
-	}
+/*
+**	Grab data from API and submit it to ratesDB
+*/
 
-	console.log(database + ' Created!');
+var exRateApp = function() {
+
+	request('http://api.fixer.io/latest?base=USD', function(err, res, body) {
+	  if(err) {
+	    console.error(err);
+	    return false;
+	  }
+
+		// Convert JSON to Object Array
+	  var newRates = dataManip.createEXData(JSON.parse(body));
+
+		gb.datasets.findOrCreate( ratesDB,
+		  function (err, dataset) {
+		    if (err) {
+		      console.error(err);
+		      return;
+		    }
+
+		    console.log("Database created or found");
+
+				// Send data over to the dataset
+		    help.modify( dataset, 'PUT', newRates);
+		  }
+		);
+	});
 };
 
-gb.datasets.findOrCreate( testDB, dbConn);
+// Send info once
+exRateApp();
+
+// POST the new exchange rates every ~25 hours
+setInterval(exRateApp, 2147483647);

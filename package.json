@@ -6,7 +6,9 @@
   "dependencies": {
     "geckoboard": "^1.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ajax-request": "^1.2.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

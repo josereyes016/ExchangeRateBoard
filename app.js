@@ -51,7 +51,7 @@ var exRateApp = function() {
 		    console.log("Database created or found");
 
 				// Send data over to the dataset
-		    help.modify( dataset, 'PUT', newRates);
+		    help.modify( dataset, 'PUSH', newRates);
 		  }
 		);
 	});

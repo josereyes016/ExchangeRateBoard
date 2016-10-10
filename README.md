@@ -29,3 +29,7 @@ I tried to keep it simple. I have a lot of experience with node so I naturally w
 ## Status
 
 I would call this project partially complete for now. I would like to refactor out some of the functionality and complete the delete section of the modify function at a later time.
+
+## Dashboard
+
+https://josereyes016.geckoboard.com/dashboards/34F2E5DE5105F9EF

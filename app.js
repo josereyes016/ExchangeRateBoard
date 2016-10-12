@@ -1,4 +1,4 @@
-var API_KEY = 'de11f06ed43f5fb59a36472754dae2f5';
+var API_KEY = 'APIKEY';
 
 var gb = require('geckoboard')(API_KEY);
 var request = require('ajax-request');
